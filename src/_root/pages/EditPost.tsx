@@ -6,7 +6,7 @@ import { Loader } from "@/components/shared";
 const EditPost = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { data: post, isPending } = useGetPostById(id);
+  const { data: post, isPending } = useGetPostById(id!);
 
   if (isPending) <Loader />;
 

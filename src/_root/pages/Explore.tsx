@@ -7,11 +7,10 @@ import {
 import useDebounce from "@/hooks/useDebounce.ts";
 import { GridPostList, Loader } from "@/components/shared";
 import { useInView } from "react-intersection-observer";
-import { Models } from "appwrite";
 
 export type SearchResultProps = {
   isSearchFetching: boolean;
-  searchedPosts: Models.DocumentList<Models.Document>;
+  searchedPosts: any;
 };
 
 const SearchResults = ({
@@ -103,7 +102,7 @@ const Explore = () => {
           <p className="text-light-4 mt-10 text-center w-full">End of posts</p>
         ) : (
           posts.pages.map((item, index) => (
-            <GridPostList key={`page-${index}`} posts={item.documents} />
+            <GridPostList key={`page-${index}`} posts={item!.documents} />
           ))
         )}
       </div>
